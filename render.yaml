@@ -1,0 +1,35 @@
+# Render deployment config for the RetailOS marketing website.
+# Docs: https://render.com/docs/blueprint-spec
+# How to use:
+#   1. Push this file to your repo's main branch.
+#   2. In Render dashboard: New → Blueprint → select this repo.
+#   3. Render will detect this render.yaml and prompt to create the service.
+#   4. Add the environment variables (see envVars below).
+# After deploy, your website will be live at https://retailos-website.onrender.com
+# and the "Login" / "Get Started" buttons will redirect to VITE_WEBAPP_URL.
+
+services:
+  - type: web
+    name: retailos-website
+    runtime: static
+    plan: free  # static sites are free on Render
+    branch: main
+    rootDir: .
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    pullRequestPreviewsEnabled: true  # render PR previews automatically
+    autoDeploy: true
+    envVars:
+      # --- Required ---
+      - key: VITE_WEBAPP_URL
+        value: https://retailos-web.onrender.com  # Web app URL (Login / Get Started redirect here)
+      # --- Optional ---
+      - key: VITE_API_URL
+        value: https://retailos-backend.onrender.com  # Backend API URL
+      - key: VITE_ADMIN_URL
+        value: https://retailos-admin.onrender.com  # Admin portal URL (used in footer)
+
+    # SPA routing — let React Router handle all paths
+    routes:
+      - source: /*
+        destination: /index.html

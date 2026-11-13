@@ -1,4 +1,4 @@
-import { LOGIN_URL, REGISTER_URL } from '../lib/config';
+import { LOGIN_URL, REGISTER_URL, ADMIN_URL } from '../lib/config';
 
 export function Footer() {
   return (
@@ -35,6 +35,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-slate-400">
               <li><a href="mailto:hello@retailos.com" className="hover:text-white">Contact</a></li>
               <li><a href="#faq" className="hover:text-white">FAQ</a></li>
+              <li><a href={ADMIN_URL} className="hover:text-white">Admin Portal</a></li>
               <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
               <li><a href="#" className="hover:text-white">Terms of Service</a></li>
             </ul>
