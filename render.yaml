@@ -22,12 +22,12 @@ services:
     envVars:
       # --- Required ---
       - key: VITE_WEBAPP_URL
-        value: https://retailos-web.onrender.com  # Web app URL (Login / Get Started redirect here)
+        value: https://retailos-web-v3lw.onrender.com  # Web app URL (Login / Get Started redirect here)
       # --- Optional ---
       - key: VITE_API_URL
-        value: https://retailos-backend.onrender.com  # Backend API URL
+        value: https://retailos-backend-v3lw.onrender.com  # Backend API URL
       - key: VITE_ADMIN_URL
-        value: https://retailos-admin.onrender.com  # Admin portal URL (used in footer)
+        value: https://retailos-admin-v3lw.onrender.com  # Admin portal URL (used in footer)
 
     # SPA routing — let React Router handle all paths
     routes:
